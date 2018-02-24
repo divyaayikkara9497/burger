@@ -1,54 +1,52 @@
-<div class="container">
-	<div class="jumbotron">
+
+	<div class="header">
 		<h1> Eat-Da-Burger!</h1>
 	</div>
 
+	<div class="container">
+
+	<hr>
+	
 	<div class="row">
-		<div class="col-md-6">
-			<div class="panel-panel default">
-				<ul class="list-group">
+		<div class="col-md-6" id="uneaten">
+		<h3>Uneaten Burgers</h3>
 				{{#each burgers}}
 					{{#unless this.devoured}}
-					<li class="list-group-item">
-						<div class="input-group">
-							<p class="lead"> {{this.burger_name}} </p>
-							<span class="input-group-btn">
-								<form action="api/burgers/update/{{this.id}}?_method=PUT" method="POST">
-									<input type="hidden" name="devoured" value="true">
-									<button class="btn btn-default" type="submit"> EAT IT! </button>
+							<h5>{{this.id}}. {{this.burger_name}}
+								<form action='api/burgers/updateOne/{{this.id}}?_method=PUT' method='POST'>
+									<input type='hidden' name='devoured' value='true'>
+									<button type='submit' id="button" class="btn btn-default">Get this!</button>
+									<br><br>
 								</form>
-							</span>
-						</div>
-					</li>
+							</h5>
 					{{/unless}}
+				{{/each}}
+		</div>
+
+		<div class="col-md-6" id="eaten">
+		<h3>Eaten Burgers</h3>
+			<ul>
+				{{#each burgers}}
+					{{#if this.devoured}}
+						<li>
+							<h5>{{this.id}}. {{this.burger_name}}</h5>
+						</li>
+					{{/if}}
 				{{/each}}
 			</ul>
 		</div>
-		</div>
-
-		<div class="col-md-6">
-			<div class="panel panel-default">
-				<h2> Eaten Burgers! </h2>
-				<ul class="list-group">
-				{{#each burgers}}
-					{{#if this.devoured}}
-					<li class="list-group-item">
-						<p class="lead">{{this.burger_name}} </p>
-					</li>
-					{{/if}}
-				{{/each}}
-				</ul>
-			</div>
-		</div>
 	</div>
+
+	<hr>
 
 	<div class="row">
 		<div class="col-md-12">
-			<form class="create-update-form" action="api/burgers/create" method="POST">
-				<div class="form-group">
+			<form class="create-update-form" action="api/burgers/insertOne" method="POST">
+				<div class="form-group" id="addition">
 					<h3> Enter the burger you want! </h3>
 					<input type="text" name="name">
-					<button class="btn-primary" id="submit" type="submit">Add Burger</button>
+					<br><br>
+					<button class="btn btn-default" id="submit" type="submit">Add Burger</button>
 				</div>
 			</form>
 		</div>

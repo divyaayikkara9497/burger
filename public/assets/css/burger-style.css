@@ -1,0 +1,39 @@
+body {
+	background-color: #FFA07A;
+}
+
+.header {
+	text-align: center;
+	color: black;
+	font-family: "Georgia";
+}
+
+#uneaten {
+	color: black;
+	font-family: "Georgia";
+	text-align: center;
+}
+
+#eaten {
+	color: black;
+	font-family: "Georgia";
+	text-align: center;
+}
+
+#button {
+	font-family: "Georgia";
+	color: black;
+	text-align: center;
+}
+
+#addition {
+	color: black;
+	font-family: "Georgia";
+	text-align: center;
+}
+
+#submit {
+	font-family: "Georgia";
+	color: black;
+	text-align: center;
+}
