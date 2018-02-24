@@ -12,13 +12,13 @@
 		<h3>Uneaten Burgers</h3>
 				{{#each burgers}}
 					{{#unless this.devoured}}
-							<h5>{{this.id}}. {{this.burger_name}}
+							<p>{{this.id}}. {{this.burger_name}}
 								<form action='api/burgers/updateOne/{{this.id}}?_method=PUT' method='POST'>
 									<input type='hidden' name='devoured' value='true'>
 									<button type='submit' id="button" class="btn btn-default">Get this!</button>
 									<br><br>
 								</form>
-							</h5>
+							</p>
 					{{/unless}}
 				{{/each}}
 		</div>
@@ -28,9 +28,7 @@
 			<ul>
 				{{#each burgers}}
 					{{#if this.devoured}}
-						<li>
-							<h5>{{this.id}}. {{this.burger_name}}</h5>
-						</li>
+					<p>{{this.id}}. {{this.burger_name}}</p>
 					{{/if}}
 				{{/each}}
 			</ul>
@@ -45,7 +43,7 @@
 				<div class="form-group" id="addition">
 					<h3> Enter the burger you want! </h3>
 					<input type="text" name="name">
-					<br><br>
+					<br>
 					<button class="btn btn-default" id="submit" type="submit">Add Burger</button>
 				</div>
 			</form>

@@ -20,7 +20,7 @@ router.post("/api/burgers/insertOne", function(req, res){
 	});
 });
 
-router.post("/api/burgers/updateOne/:id" , function(req, res){
+router.put("/api/burgers/updateOne/:id" , function(req, res){
 	var condition = "id = " + req.params.id;
 	console.log("condition", condition);
 
